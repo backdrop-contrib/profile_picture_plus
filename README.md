@@ -24,6 +24,9 @@ more features to come...
 This module works fine with php5.5 if you are using the <a href="https://www.drupal.org/project/imagemagick" title="ImageMagick">ImageMagick</a> processing toolkit.
 For php5.5 with the default gd image library you will need to apply a very small patch to core, see https://www.drupal.org/node/2215369, patch from #35 works. This issue will go away once that patch is committed to core.
 
+<img src="https://github.com/Lowell20/profile_picture_plus/blob/master/images/5833031.png" />
+<img src="https://github.com/Lowell20/profile_picture_plus/blob/master/images/5833070.png" />
+
 License
 -------
 
