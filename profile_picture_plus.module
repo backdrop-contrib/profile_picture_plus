@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file profile_picture_plus.module
+ * TODO: Enter file description here.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the user edit form.
+ * Add profile_picture_plus_rotate form to the user account form.
+ */
+function profile_picture_plus_form_user_profile_form_alter(&$form, &$form_state) {
+  if (isset($form['picture']['picture_upload'])) {
+    $form['picture']['picture_upload']['#access'] = empty($form['picture']['picture']['#value']->fid);
+  }
+  $form['picture']['profile_picture_plus_rotate'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Rotate picture'),
+    '#access' => !empty($form['picture']['picture']['#value']->fid),
+    '#description' => t('Check this box to rotate your current picture 90 degrees clockwise.'),
+  );
+}
+
+/**
+ * Implements hook_user_presave().
+ * Rotate user picture 90 degrees clockwise if selected
+ */
+function profile_picture_plus_user_presave(&$edit, $account, $category) {
+  if (isset($edit['profile_picture_plus_rotate'])) {
+    if ($edit['profile_picture_plus_rotate'] == 1 && isset($edit['picture']->uri)) {
+      $degrees = 90;
+      $image_object = image_load($edit['picture']->uri);
+      image_rotate($image_object, $degrees);
+      $result = image_save($image_object);
+      if ($result == TRUE) {
+        $file_uri = str_replace('_0_0_0','',$edit['picture']->uri);
+        $file_object = file_load($edit['picture']->fid);
+        $result = file_move($file_object, $file_uri, FILE_EXISTS_RENAME);
+        if ($result == TRUE) {
+          drupal_set_message(t('Success! User Picture has been rotated 90 degrees clockwise.'));
+        }
+        else {
+          drupal_set_message(t('Warning! User Picture was rotated but may not refresh in browser. Please refresh the browser and server caches to see rotated image.'),'warning');
+        }
+      }
+      else {
+        drupal_set_message(t('Error! User Picture was not edited. You may need to contact your site admin.'),'error');
+      }
+    }
+  }
+}
+
