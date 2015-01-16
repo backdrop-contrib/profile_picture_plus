@@ -1,4 +1,3 @@
-# profile_picture_plus
 Profile Picture Plus
 ======================
 
