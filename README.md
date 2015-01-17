@@ -21,7 +21,10 @@ Currently, this module does 2 things:
 
 more features to come...
 
-This module works as is with php 5.3 and 5.4. If you have php5.5 if you will need either the <a href="https://www.drupal.org/project/imagemagick" title="ImageMagick">ImageMagick</a> processing toolkit or you will need to apply a very small patch to core. 
+This module works as is with php 5.3 and 5.4. 
+
+TODO: does backdrop have imagemagick support?
+If you have php 5.5 if you will need either the <a href="https://www.drupal.org/project/imagemagick" title="ImageMagick">ImageMagick</a> processing toolkit or you will need to apply a very small patch to core. 
 
 TODO: convert drupal 7 patch to backdrop
 See https://www.drupal.org/node/2215369, patch from #35 works. This issue will go away once that patch is committed to core.
