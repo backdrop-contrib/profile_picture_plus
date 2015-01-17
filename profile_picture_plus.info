@@ -1,5 +1,5 @@
 name = Profile Picture Plus
-description = TODO: Description of module
-package = Custom Modules
-core = 7.x
-files[] = tests/profile_picture_plus.test
+description = "Rotate User Profile Picture 90 clockwise"
+package = Other
+backdrop = 1.x
+version = 1.0
