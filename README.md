@@ -29,9 +29,6 @@ If you have php 5.5 if you will need either the <a href="https://www.drupal.org/
 TODO: convert drupal 7 patch to backdrop
 See https://www.drupal.org/node/2215369, patch from #35 works. This issue will go away once that patch is committed to core.
 
-<img src="https://github.com/Lowell20/profile_picture_plus/blob/master/images/5833031.png" />
-<img src="https://github.com/Lowell20/profile_picture_plus/blob/master/images/5833070.png" />
-
 License
 -------
 
